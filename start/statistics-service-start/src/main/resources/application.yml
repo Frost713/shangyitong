@@ -1,0 +1,5 @@
+server:
+  port: 8208
+spring:
+  application:
+    name: statistics-service-start

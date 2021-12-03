@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mxchen.shangyitong.gatewayimpl.database.mysql.cmn.DictMapper">
+
+    <select id="findChildData" resultType="com.mxchen.shangyitong.model.cmn.Dict">
+        select a.*,
+               case when (select count(1) from dict where parent_id = a.id) > 0 then 1 else 0 end as hasChildren
+        from dict a
+        where a.is_deleted = 0 and  a.parent_id = #{parentId}
+    </select>
+</mapper>

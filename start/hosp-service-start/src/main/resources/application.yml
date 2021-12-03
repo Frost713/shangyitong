@@ -1,0 +1,51 @@
+server:
+  port: 8201
+spring:
+  application:
+    name: hosp-service-start
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/yygh_hosp?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+  data:
+    mongodb:
+      uri: mongodb://yygh:123456@localhost:27017/yygh
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
+  global-config:
+    configuration:
+      map-underscore-to-camel-case: true
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      table-underline: true
+      db-type: mysql
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath:/mapper/*.xml
+swagger:
+  enable: true
+  groupName: hospApi
+  basePackage: com.mxchen.shangyitong
+  title: hosp管理系统-API文档
+  description: 本文档描述了hosp管理系统微服务接口定义
+  version: 1.0
+  authorName: atguigu
+  termsOfServiceUrl: http://atguigu.com
+  email: 493211102@qq.com
+  config:
+      - groupName: hospApi-规则
+        version: 1.0.2
+
+      - groupName: hospApi-设置
+        version: 1.0.3
+
+      - groupName: hospApi-信息
+        version: 1.0.4
+
+      - groupName: hospApi-排班
+        version: 1.0.5
