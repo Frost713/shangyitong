@@ -1,0 +1,35 @@
+server:
+  port: 8202
+spring:
+  application:
+    name: cmn-service-start
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/yygh_cmn?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
+  global-config:
+    configuration:
+      map-underscore-to-camel-case: true
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      table-underline: true
+      db-type: mysql
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath:/mapper/**/*Mapper.xml
+swagger:
+  enable: true
+  groupName: cmnApi
+  basePackage: com.mxchen.shangyitong
+  title: 数据字典管理系统-API文档
+  description: 本文档描述了数据字典管理系统微服务接口定义
+  version: 1.0
+  authorName: atguigu
+  termsOfServiceUrl: http://atguigu.com
+  email: 493211102@qq.com
